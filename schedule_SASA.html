@@ -1,0 +1,104 @@
+<head>
+  <title>scheduleMatching</title>
+</head>
+
+<body>
+  	<div class="container">
+	 <div class="row">
+	    {{> match}}
+
+	   </div>	
+	  <div class="row">
+	    <div class="col-xs-6">
+		  {{ > tasks}}
+  		</div>
+  		<div class="col-xs-6">
+		  {{> worker}}
+  		</div>
+
+	   </div>	
+    </div>
+</body>
+
+<template name="tasks">
+		     
+		<h2>Client</h2>		             
+		 <table class="table table-hover">
+			<thead>
+			<tr>
+				<th>Name</th>
+		        <th>Task</th>
+		        <th>when?</th>
+		        
+			</tr>
+		    </thead>
+			<tbody>	     
+			 {{#each tasks}}
+
+		     <tr>
+			 <td>{{name}}</td>
+		     <td>{{task}}</td>
+			 <td>{{flag}}</td>
+			 </tr> 
+ 
+			 {{/each}}
+			</tbody>
+			</table>
+
+ 
+</template>
+
+<template name="worker">
+		     
+		     
+		<h2>Skilled Workers</h2>		             
+		 <table class="table table-hover">
+			<thead>
+			<tr>
+				<th>tasker_Name</th>
+		        <th>timeSlot</th>
+			</tr>
+		    </thead>
+			<tbody>
+			{{#each worker}}
+			<tr>
+				<td>{{name}}</td>
+				{{#each timeslot}}
+					{{#if available}}
+						<td>| {{slot}} | </td>
+					{{/if}}
+				{{/each}}
+			</tr>
+ 			{{/each}}
+		
+			</tbody>
+			</table>
+
+ 
+</template>
+
+<template name="match">
+		     
+		     
+		<h2>Match Table</h2>		             
+		 <table class="table table-hover">
+			<thead>
+			<tr>
+				<th>task_name</th>
+		        <th>by</th>
+		        <th>assigned to</th>
+		        <th>when?</th>
+			</tr>
+		    </thead>
+			<tbody>
+			<th>...</th>
+			<th>...</th>
+			<th>...</th>
+			<th>...</th>
+			</tbody>
+			</table>
+
+ 
+</template>
+
+ 
